@@ -58,7 +58,7 @@ resource "aws_instance" "my_amazon" {
 # Adding SSH key to Amazon EC2
 resource "aws_key_pair" "my_key" {
   key_name   = local.name_prefix
-  public_key = file("assignment1.pub")
+  public_key = file("assignment2.pub")
 }
 
 # Security Group
@@ -118,7 +118,7 @@ resource "aws_security_group" "my_sg" {
 #Amazon ECR
 
 resource "aws_ecr_repository" "my_ecr_repository" {
-  name = "clo835-ecr-assignment1" # 
+  name = "clo835-ecr-assignment2" # 
 
   image_tag_mutability = "MUTABLE"
 }

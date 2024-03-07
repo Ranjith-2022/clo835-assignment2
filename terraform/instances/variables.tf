@@ -18,7 +18,7 @@ variable "env" {
 }
 
 variable "assignment" {
-  default     = "assignment1"
+  default     = "assignment2"
   type        = string
   description = "Project"
 }
