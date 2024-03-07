@@ -60,4 +60,8 @@ resource "aws_ecr_repository" "my_ecr_repository" {
   name = "clo835-ecr-assignment2" # 
 
   image_tag_mutability = "MUTABLE"
+  
 }
+
+## ECR Testing
+
