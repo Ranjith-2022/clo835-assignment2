@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: application
+  namespace: application-ns
+  labels:
+    app: employees
+spec:
+  selector:
+    matchLabels:
+      app: application
+  template:
+    metadata:
+      labels:
+        app: application
+    spec:
+      containers:
+      - name: application
+        image: 602646394633.dkr.ecr.us-east-1.amazonaws.com/clo835-ecr-assignment2:myapp_v0.1
+        ports:
+        - containerPort: 8080
+        env:
+          - name: DBPORT
+            value: "3306"
+          - name: DBHOST
+            value: mysql
+          - name: DBUSER
+            value: root
+          - name: DATABASE
+            value: employees
+          - name: DBPWD
+            value: pw
+          - name: APP_COLOR
+            value: blue
+            
