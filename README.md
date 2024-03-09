@@ -1,13 +1,13 @@
-**** Assignmnet 2 ****
+## Assignmnet 2 ##
 
-Docker Installation 
+ #### Docker Installation ####
 
 sudo yum update -y
 sudo yum install docker -y
 sudo systemctl start docker
 sudo systemctl status docker
 
-Access 
+#### Access ####
 
 sudo chmod 666 /var/run/docker.sock
 sudo usermod -a -G docker ec2-user
@@ -27,7 +27,7 @@ chmod 777 ./init_kind.sh
 
 ./init_kind.sh
 
-** The local K8s cluster **
+#### The local K8s cluster ####
 
 kubectl get nodes
 
@@ -35,13 +35,13 @@ kubectl cluster-info
 
 
 
-** Namespace **
+#### Namespace ####
 
 kubectl create ns app-ns
 
 kubectl create ns mysql-ns
 
-** Pod **
+#### Pod ####
 
 kubectl apply -f app-pod.yaml
 
@@ -51,17 +51,17 @@ kubectl apply -f app-service.yaml
 
 kubectl apply -f mysql-service.yaml
 
-** Retriving pods **
+#### Retriving pods ####
 
 kubectl get pods -n app-ns
 
 kubectl get pods -n mysql-ns
 
-** Retriving Service **
+#### Retriving Service ####
 
 kubectl get services
 
-** Connecting services **
+#### Connecting services ####
 
 kubectl exec -it application-pod -- /bin/sh
 
@@ -74,7 +74,7 @@ kubectl logs application-pod
 kubectl logs mysql-pod
 
 
-** Replica Set **
+#### Replica Set ####
 
 kubectl apply -f app-replica.yaml 
 
@@ -82,7 +82,7 @@ kubectl apply -f mysql-replica.yaml
 
 kubectl get rs
 
-** Deployment **
+#### Deployment ####
 
 kubectl apply -f app-deployment.yaml 
 
@@ -90,12 +90,12 @@ kubectl apply -f mysql-deployment.yaml
 
 kubectl get deployments
 
-** Deployment Version Change **
+#### Deployment Version Change ####
 
 kubectl rollout history deployment application 
 
 
-** DELETE **
+#### DELETE ####
 
 kubectl delete services --all 
 
