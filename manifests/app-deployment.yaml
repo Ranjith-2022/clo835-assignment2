@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: application
-  namespace: application-ns
   labels:
     app: employees
 spec:

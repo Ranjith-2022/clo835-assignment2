@@ -1,8 +1,7 @@
-apiVersion: apps/v2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
-  namespace: mysql-ns
   labels:
     app: mysql
 spec:
