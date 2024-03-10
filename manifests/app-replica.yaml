@@ -23,7 +23,7 @@ spec:
           - name: DBPORT
             value: "3306"
           - name: DBHOST
-            value: mysql-service
+            value: mysql-service.mysql-ns.svc.cluster.local
           - name: DBUSER
             value: root
           - name: DATABASE
