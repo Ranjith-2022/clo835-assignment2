@@ -1,9 +1,6 @@
 ## Assignmnet 2 ##
 
 
-scp -i assignment2 app-deployment.yaml app-pod.yaml app-replica.yaml app-service.yaml mysql-pod.yaml mysql-deployment.yaml mysql-replica.yaml mysql-service.yaml kind.yaml init_kind.sh 3.231.161.51:/tmp
-
-
  #### Docker Installation ####
 
 sudo yum update -y
@@ -89,6 +86,7 @@ kubectl get rs -n mysql-ns
 kubectl get pods -n app-ns
 
 kubectl get pods -n mysql-ns
+
 #### Deployment ####
 
 kubectl apply -f app-deployment.yaml
