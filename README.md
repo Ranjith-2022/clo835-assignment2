@@ -7,15 +7,21 @@ scp -i assignment2 app-deployment.yaml app-pod.yaml app-replica.yaml app-service
  #### Docker Installation ####
 
 sudo yum update -y
+
 sudo yum install docker -y
+
 sudo systemctl start docker
+
 sudo systemctl status docker
 
 #### Access ####
 
 sudo chmod 666 /var/run/docker.sock
+
 sudo usermod -a -G docker ec2-user
+
 aws configure
+
 sudo vi ~/.aws/credentials
 
 aws docker image push command
