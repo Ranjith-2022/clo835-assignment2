@@ -1,4 +1,37 @@
-## Assignmnet 2 ##
+## Containerized Stateless Applications using Kubernetes ##
+
+## Overview
+
+# Assignment: Hosting Containerized Application on KIND Cluster in AWS EC2
+
+## Overview
+
+In this assignment, the goal is to host a containerized application on a KIND (Kubernetes IN Docker) cluster running on an Amazon Linux-based EC2 instance in the AWS environment. The assignment flow includes the following steps:
+
+1. **Deploy Amazon Linux EC2 Instance**: Provision an Amazon Linux-based EC2 instance with sufficient capacity to run the KIND cluster and host the containerized application.
+
+2. **Install Pre-requisites**: Install all the necessary pre-requisites on the Amazon EC2 instance required to host the containerized application on the Kubernetes cluster created by KIND (kind, kubectl).
+
+3. **Create KIND Cluster**: Use the KIND tool to create a Kubernetes cluster.
+
+4. **Deploy Containerized Application**: Deploy the containerized application using pod, replicaset, deployment, and service manifests.
+
+5. **Expose Web Application**: Expose the web application using a Service of type NodePort.
+
+6. **Expose MySQL**: Expose MySQL using a Service of type ClusterIP.
+
+7. **Update Applications**: Update the applications and deploy the new version of the application.
+
+
+## Tools and Services Used
+
+- **Amazon ECR**: Securely store your container images.
+- **Cloud9 IDE** (or your local environment): Develop your application and build container images.
+- **Amazon EC2**: Host your KIND cluster.
+- **KIND**: Deploy a local Kubernetes cluster.
+- **Kubectl**: Communicate with the Kubernetes API Server.
+- **AWS IAM** (Identity and Access Management): Grant EC2 instance access to Amazon ECR repository.
+- **Terraform**: Optionally deploy the infrastructure.
 
 
  #### Docker Installation ####
