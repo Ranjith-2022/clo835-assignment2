@@ -34,121 +34,105 @@ In this assignment, the goal is to host a containerized application on a KIND (K
 - **Terraform**: Optionally deploy the infrastructure.
 
 
- #### Docker Installation ####
+## Step 1: Docker Installation ##
 
+```bash
 sudo yum update -y
-
 sudo yum install docker -y
-
 sudo systemctl start docker
-
 sudo systemctl status docker
+```
 
-#### Access ####
+## Step 2: Creating Access ##
 
+
+```bash
 sudo chmod 666 /var/run/docker.sock
-
 sudo usermod -a -G docker ec2-user
-
 aws configure
-
 sudo vi ~/.aws/credentials
-
 aws docker image push command
-
 chmod 777 ./init_kind.sh 
-
 ./init_kind.sh
+```
 
-#### The local K8s cluster ####
+## Step 3: Testing Local cluster ##
 
+```bash
 kubectl get nodes
-
 kubectl cluster-info
+```
 
+## Step 4: Creating Namespace ##
 
-#### Namespace ####
-
+```bash
 kubectl create ns app-ns
-
 kubectl create ns mysql-ns
+```
 
-#### Pod ####
+## Step 5: Creating Pod ##
 
+```bash
 kubectl apply -f app-pod.yaml 
-
 kubectl apply -f mysql-pod.yaml 
-
 kubectl apply -f app-service.yaml 
+kubectl apply -f mysql-service.yaml
+```
 
-kubectl apply -f mysql-service.yaml 
+## Step 6: Retriving pods & Service ##
 
-#### Retriving pods & Service ####
-
+```bash
 kubectl get pods -n app-ns
-
 kubectl get pods -n mysql-ns
-
 kubectl get services -n app-ns
-
 kubectl get services -n mysql-ns
+```
 
-#### Connecting services ####
+## Step 7: Connecting services ##
 
+```bash
 kubectl exec -it application-pod -n app-ns  -- /bin/sh 
-
 kubectl port-forward -n app-ns pod/application-pod 8080:8080
-
 curl localhost:8080
-
 kubectl logs application-pod -n app-ns
-
 kubectl logs mysql-pod -n mysql-ns
+```
 
+## Step 8: Creating Replica Set ##
 
-#### Replica Set ####
-
+```bash
 kubectl apply -f app-replica.yaml
-
 kubectl apply -f mysql-replica.yaml
-
 kubectl get rs -n app-ns
-
 kubectl get rs -n mysql-ns
-
 kubectl get pods -n app-ns
-
 kubectl get pods -n mysql-ns
+```
 
-#### Deployment ####
+## Step 9: Deployment ##
 
+```bash
 kubectl apply -f app-deployment.yaml
-
 kubectl apply -f mysql-deployment.yaml 
-
 kubectl get deployments -n app-ns
-
 kubectl get deployments  -n mysql-ns
-
 kubectl get pods -n app-ns
-
 publicip:30000
+```
 
+#### Step 10: Deployment Version Change ####
 
-#### Deployment Version Change ####
-
+```bash
 kubectl rollout history deployment application -n app-ns
-
 kubectl get pods -n app-ns
-
 kubectl get pods -n mysql-ns
-
+```
 
 #### DELETE ####
 
+```bash
 kubectl delete services --all 
-
 kubectl delete pods --all 
-
+```
 
 
